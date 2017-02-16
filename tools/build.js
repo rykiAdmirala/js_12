@@ -1,13 +1,14 @@
-({
-	baseUrl: "../js",
-	mainConfigFile: "../js/src/main.js",
-	name: "../js/src/main",
-	out: "../js/main-built.js",
-	// paths: {
-	// 	"jquery": "empty:",
-	// 	"lodash": "empty:"
-	// },
-	preserveLicenseComments: false,
-	generateSourceMaps: true,
-	optimize: "none"
-})
+{
+    "appDir": "../www",
+    "baseUrl": "js/app",
+    "dir": "../www-build",
+    "optimize": "none",
+
+    "mainConfigFile": "../www/js/app.js",
+
+    "modules": [
+        {
+            "name": "../app"
+        }
+    ]
+}
