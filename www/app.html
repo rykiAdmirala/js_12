@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ДЗ #23-24 | GOIT FE #6</title>
+    <script data-main="js/app" src="js/require.js"></script>
+</head>
+<body>
+
+<script type="text/template" id="wrapper-template">
+	<div class="wrapper">
+		<h1>Список задач</h1>
+		
+		<ul class="list"></ul>
+		
+		<form action="" method="" class="controls">
+			<input class="controls__input" type="text" placeholder="Введите новую задачу">
+			<button type="submit">Добавить!</button>
+		</form>
+
+	</div>
+</script>
+
+
+<script type="text/template" id="list-template">
+	<% for (var i = 0; i < data.length; i++) { %>
+		<li data-index="<%= i %>">
+			<span class="list__el-text" contenteditable><%= data[i] %></span>
+			<span class="list__el-edit"></span>
+			<span class="list__el-remove"></span>
+		</li>
+	<% } %>
+</script>
+
+	
+</body>
+</html>
