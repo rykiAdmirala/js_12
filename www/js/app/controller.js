@@ -1,28 +1,36 @@
-define(['jquery', 'model', 'view'], function($, model, view) {
+define(['jquery', 'model', 'view'], function($, Model, View) {
 
-  return(function() {
+  return(function Controller(Model, View) {
 
     let self = this;
-    let controls = view.controls;
+    let controls = View.controls;
 
-    function addItem() {
+
+    controls.form.on('submit', addItem);
+    controls.listContainer.on('click', controls.removeBtn, removeItem);
+    controls.listContainer.on('click', controls.editBtn, toggleFocusState);
+    controls.listContainer.on('focusin', controls.listElText, saveInitValue);
+    controls.listContainer.on('focusout', controls.listElText, editItem);
+
+
+    function addItem(e) {
+      e.preventDefault();
+
       let newItem = controls.input.val();
       
-      model.addItem(newItem);
-      view.renderList(model.data);
+      Model.addItem(newItem);
+      View.renderList(Model.data);
       controls.input.val('');
     }
 
-    controls.form.on('submit', addItem);
 
     function removeItem() {
       let index = $(this).parents('li').data('index');
 
-      model.removeItem(index);
-      view.renderList(model.data);
+      Model.removeItem(index);
+      View.renderList(Model.data);
     }
 
-    controls.removeBtn.on('click', removeItem);
 
     function toggleFocusState() {
       let listEl =
@@ -42,27 +50,25 @@ define(['jquery', 'model', 'view'], function($, model, view) {
       $(this).data('value', $(this).text());
     }
 
-    controls.editBtn.on('click', toggleFocusState);
-
-    controls.listElText.on('focusin', saveInitValue);
-    controls.listElText.on('focusout', editItem)
 
     function editItem() {
       let initValue = $(this).data('value');
 
-      let currentValue = $(this).data('value', $(this).text());
+      let currentValue = $(this).text();
+      $(this).data('value', currentValue);
 
       if (currentValue === initValue) {
         return
       } else {
         let index = $(this).closest(controls.listElNode).data('index');
 
-        model.removeItem(index);
-        view.renderList(model.data);
+        Model.editItem(index, currentValue);
+        View.renderList(Model.data);
       }
-
     }
 
-  })
+    
+
+  });
 
 });

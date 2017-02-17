@@ -1,6 +1,6 @@
 define(function() {
 
-  return(function Model(data) {
+  function Model(data) {
 
     let self = this;
 
@@ -27,6 +27,8 @@ define(function() {
     
     }
 
-  });
+  };
+
+  return Model;
 
 });

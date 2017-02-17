@@ -1,16 +1,11 @@
-define(["jquery", "controller"], function($, controller) {
+define(['jquery', 'model', 'view', 'controller'], function($, Model, View, Controller) {
 
   $(function() {
-    ee = 4;
-    let b = 1;
-    let c = 2;
-    let d = `This is one - ${b}, and this is c - ${c}!`;
-    let a = {
-      d,
-      ee
-    };
 
-    console.log(a);
+    var model = new Model(['Task 1', 'Task 2', 'Task 3', 'Task 4']);
+    var view = new View(model);
+    var controller = new Controller(model, view);
+
   });
 
 });

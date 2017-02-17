@@ -3,6 +3,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>ДЗ #23-24 | GOIT FE #6</title>
+	
+	<link rel="stylesheet" href="css/style.css">
+
     <script data-main="js/app" src="js/require.js"></script>
 </head>
 <body>
@@ -25,9 +28,9 @@
 <script type="text/template" id="list-template">
 	<% for (var i = 0; i < data.length; i++) { %>
 		<li data-index="<%= i %>">
-			<span class="list__el-text" contenteditable><%= data[i] %></span>
-			<span class="list__el-edit"></span>
-			<span class="list__el-remove"></span>
+			<span class="list__el_text" contenteditable><%= data[i] %></span>
+			<span class="list__el_edit"></span>
+			<span class="list__el_remove"></span>
 		</li>
 	<% } %>
 </script>

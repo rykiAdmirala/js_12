@@ -1,0 +1,20 @@
+* {
+	/*margin: 0;*/
+	/*padding: 0;*/
+}
+
+.list__el_edit {
+	display: inline-block;
+	vertical-align: top;
+	width: 15px;
+	height: 15px;
+	background: blue;
+}
+.list__el_remove {
+	display: inline-block;
+	vertical-align: top;
+	width: 15px;
+	height: 15px;
+	background: red;
+
+}

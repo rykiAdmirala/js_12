@@ -1,6 +1,6 @@
-define(['jquery', 'lodash', 'model'], function($, _, model) {
+define(['jquery', 'lodash', 'model'], function($, _, Model) {
 
-  return(function View() {
+  return(function View(Model) {
     
     let self = this;
 
@@ -15,21 +15,22 @@ define(['jquery', 'lodash', 'model'], function($, _, model) {
         input: $('.controls__input')
       }
 
-      self.renderList(model.data)
+      self.renderList(Model.data);
 
     }
 
     self.renderList = function(data) {
 
-      let tmpl = _.template($('#list-template').html())
-      let list = tmpl({data});
+      let html = $('#list-template').html();
+      let tmpl = _.template(html);
+      let list = tmpl({data: data});
 
-      self.controls.listContainer.append(list);
+      self.controls.listContainer.html(list);
 
       self.controls.listElNode = 'li';
-      self.controls.editBtn = $('.list__el_edit');
-      self.controls.removeBtn = $('.list__el_remove');
-      self.controls.listElText = $('.list__el_text');
+      self.controls.listElText = '.list__el_text';
+      self.controls.editBtn = '.list__el_edit';
+      self.controls.removeBtn = '.list__el_remove';
 
     }
 
