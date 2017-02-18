@@ -1,0 +1,1 @@
+define(["jquery","model","view","controller"],function(e,t,a,r){e(function(){var e=["покрасить пол","застелить постель","вызвать экзорциста","посушить волосы"];if(localStorage.getItem("tasks"))var s=JSON.parse(localStorage.getItem("tasks"));else{var s=e;localStorage.setItem("tasks",JSON.stringify(e))}var o=new t(s,"tasks"),l=new a(o);new r(o,l)})});

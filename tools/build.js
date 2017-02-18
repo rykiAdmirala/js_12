@@ -2,7 +2,7 @@
     "appDir": "../www",
     "baseUrl": "js/app",
     "dir": "../www-build",
-    "optimize": "none",
+    // "optimize": "none",
 
     "mainConfigFile": "../www/js/app.js",
 

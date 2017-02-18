@@ -1,0 +1,1 @@
+define([],function(){function t(t,a){function n(){localStorage.setItem(a,JSON.stringify(e.data))}var e=this;e.data=t,e.addItem=function(t){return e.data.push(t),n(),e.data},e.removeItem=function(t){return e.data.splice(t,1),n(),e.data},e.editItem=function(t,a){return e.data.splice(t,1,a),n(),e.data}}return t});
